@@ -1,0 +1,5 @@
+Practical Exercise of Session 1: Connecting to Jerico's Remote Repo
+
+Learning Points:
+1. Git clone to an empty folder. Not an existing folder with .git. Error: Nestled Git
+2. ensure terminal is in the right directory using cd
