@@ -3,3 +3,4 @@ Practical Exercise of Session 1: Connecting to Jerico's Remote Repo
 Learning Points:
 1. Git clone to an empty folder. Not an existing folder with .git. Error: Nestled Git
 2. ensure terminal is in the right directory using cd
+3. git push origin (branch name) is required to push the local repo to the remote repo
