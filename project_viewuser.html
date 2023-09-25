@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style/homepagestyle.css">
+</head>
+<>
+    <div class="header">
+        <h1>Find Employee</h1>
+    </div>
+    <div class="logout">
+        <button class="button" id="backbutton">Back</button>
+    </div>
+   
+    <h2 class = "container">Search Parameter:</h2>
+    <div class="form">
+        <form>
+            <label for="name">Name:</label>
+            <input type="text"><br>
+            <label for="employee_id">Employee ID:</label>
+            <input type="text"><br>
+            <label for="department">Department:</label>
+            <input type="text"><br>
+            <label for="job_rank">Job Rank:</label>
+            <input type="text"><br>
+            <label for="major">Major:</label>
+            <input type="text"><br>
+        </form>
+
+    </div>
+
+     <!--Script for Back Button-->
+    <script>
+        document.getElementById("backbutton").onclick = function () {
+            window.location.href = "project_homepage.html";
+          };
+    </script>
+
+</body>
+</html>

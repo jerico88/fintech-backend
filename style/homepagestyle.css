@@ -37,3 +37,13 @@ body {
 .button:hover {
     background-color: #0056b3;
 }
+
+.form {
+    width:250px;
+    margin-left: 450px;
+    font-size: 2ch;
+}
+
+.form input {
+    width:300%;
+}

@@ -14,9 +14,18 @@
     <div class="container">
         <h2>Choose an action:</h2>
         <button class="button">Add Employee</button>
-        <button class="button">Find Employee</button>
+        <button class="button" id="findbutton">Find Employee</button>
         <button class="button">Edit Existing Employee Details</button>
         <button class="button">Delete Employee</button>
     </div>
+
+
+    <!--Script for Find Employee Button-->
+    <script>
+        document.getElementById("findbutton").onclick = function () {
+            window.location.href = "project_viewuser.html";
+          };
+    </script>
+
 </body>
 </html>
