@@ -1,18 +1,41 @@
 const express = require("express");
-const user = require("./apis/user");
-const service = express();
-service.use(express.json());
+const mysql = require("mysql");
 
-service.use("/user", user.router);
-// service.use("/account", account.router);
+// Create connection
+const db = mysql.createConnection({
+    host: "127.0.0.1",
+    user: "root",
+    password: "123",
+    port: 3306
+});
 
-service.listen(
+// Connect to MySQL
+db.connect((error) => {
+    if (error) throw error;
+    console.log("MySQL connected!")
+});
+
+// const user = require("./apis/user");
+const app = express();
+
+// Create DB
+app.get('/createdb', (req, res) => {
+    let sql = 'CREATE DATABASE employees';
+    db.query(sql, (error, result) => {
+        if (error) throw error;
+        console.log(result);
+        res.send('DB created!');
+    });
+});
+
+// app.use(express.json());
+// app.use("/user", user.router);
+// app.use("/account", account.router);
+
+app.listen(
     3000,
     (error) => {
-        if (error) {
-            console.error("Error occurred while starting service");
-        } else {
-            console.log("Server started in port 3000");
-        }
+        if (error) console.error("Error occurred while starting app");
+        console.log("Server started in port 3000");
     }
 );
