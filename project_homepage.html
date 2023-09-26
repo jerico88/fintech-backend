@@ -2,46 +2,7 @@
 <html>
 <head>
     <title>Homepage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .logout {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .container {
-            margin: 20px;
-            text-align: center;
-        }
-
-        .button {
-            background-color: #0074d9;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            margin: 10px;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="style/homepagestyle.css">
 </head>
 <body>
     <div class="header">
@@ -53,9 +14,18 @@
     <div class="container">
         <h2>Choose an action:</h2>
         <button class="button">Add Employee</button>
-        <button class="button">Find Employee</button>
+        <button class="button" id="findbutton">Find Employee</button>
         <button class="button">Edit Existing Employee Details</button>
         <button class="button">Delete Employee</button>
     </div>
+
+
+    <!--Script for Find Employee Button-->
+    <script>
+        document.getElementById("findbutton").onclick = function () {
+            window.location.href = "project_viewuser.html";
+          };
+    </script>
+
 </body>
 </html>
