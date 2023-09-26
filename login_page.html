@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .login-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #888888;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .input-field {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .button {
+            background-color: #0074d9;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Database</h2>
+        <div class="login-form">
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="input-field" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="input-field" required>
+
+                <button type="button" class="button" onclick="login()">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            // Replace with your actual login validation logic
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Simulate a successful login for demonstration purposes
+            if (username == "user" && password == "password123") {
+                // Redirect to the homepage
+                window.location.href = "project_homepage.html";
+            } else {
+                alert("Login failed. Please check your username and password.");
+            }
+        }
+    </script>
+</body>
+</html>
