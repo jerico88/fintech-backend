@@ -8,6 +8,10 @@ service.use(express.json());
 service.use("/user", user.router);
 service.use("/accounts", accounts.router);
 
+service.get('/', (request, response) => {
+    response.sendFile(__dirname + '/login_page.html');
+});
+
 service.listen(
     3000,
     (error) => {
