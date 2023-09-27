@@ -12,6 +12,10 @@ service.get('/', (request, response) => {
     response.sendFile(__dirname + '/login_page.html');
 });
 
+service.get('/project_homepage.html', (request, response) => {
+    response.sendFile(__dirname + '/project_homepage.html');
+});
+
 service.listen(
     3000,
     (error) => {
