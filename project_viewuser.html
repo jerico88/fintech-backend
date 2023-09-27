@@ -11,20 +11,24 @@
         <button class="button" id="backbutton">Back</button>
     </div>
    
-    <h2 class = "container">Search Parameter:</h2>
+    <h2 class = "container"><u>Search Parameter</u>:</h2>
     <div class="form">
         <form>
             <label for="name">Name:</label>
-            <input type="text"><br>
+            <input type="text" id="name"><br>
             <label for="employee_id">Employee ID:</label>
-            <input type="text"><br>
+            <input type="text" id="employee_id"><br>
             <label for="department">Department:</label>
-            <input type="text"><br>
+            <input type="text" id="department"><br>
             <label for="job_rank">Job Rank:</label>
-            <input type="text"><br>
+            <input type="text" id="job_rank"><br>
+            <label for="Years of Experience">Years of Experience:</label>
+            <input type="text" id="years"><br>
             <label for="major">Major:</label>
-            <input type="text"><br>
+            <input type="text" id="major"><br>
         </form>
+        <button class="button" id="submitbutton">Submit</button>
+
 
     </div>
 
@@ -33,6 +37,19 @@
         document.getElementById("backbutton").onclick = function () {
             window.location.href = "project_homepage.html";
           };
+    </script>
+
+    <!--Script for submit button-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitButton = document.getElementById("submitbutton");
+
+            submitButton.addEventListener("click", function() {
+                const scriptElement = document.createElement("script");
+
+                scriptElement.src = "./api/testapi"
+            })
+        });
     </script>
 
 </body>
