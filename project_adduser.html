@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="style/homepagestyle.css">
 </head>
     <div class="header">
-        <h1>Find Employee</h1>
+        <h1>Add Employee</h1>
     </div>
     <div class="logout">
         <button class="button" id="backbutton">Back</button>
     </div>
    
-    <h2 class = "container"><u>Search Parameter</u>:</h2>
+    <h2 class = "container"><u>Add Parameter</u>:</h2>
     <div class="form">
         <form>
             <label for="name">Name:</label>
@@ -29,11 +29,13 @@
     </div>
 
      <!--Script for Back Button-->
-
+    <script>
+        document.getElementById("backbutton").onclick = function () {
+            window.location.href = "project_homepage.html";
+          };
+    </script>
 
     <!--Script for submit button-->
-    
-    <!--  Put as comment first as still editing & it interfere with the button script below
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const submitButton = document.getElementById("submitbutton");
@@ -44,13 +46,6 @@
                 scriptElement.src = "./api/testapi"
             })
         });
-    </script>
-    -->
-    
-    <script>
-        document.getElementById("backbutton").onclick = function () {
-            window.location.href = "project_homepage.html";
-          };
     </script>
 
 </body>
