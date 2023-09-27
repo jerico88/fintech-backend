@@ -9,12 +9,12 @@
         <h1>Welcome User</h1>
     </div>
     <div class="logout">
-        <button class="button">Log Out</button>
+        <button class="button" id="logout">Log Out</button>
     </div>
     <div class="container">
         <h2>Choose an action:</h2>
         <button class="button">Add Employee</button>
-        <button class="button" id="findbutton">Find Employee</button>
+        <button class="button" id="findemployee">Find Employee</button>
         <button class="button">Edit Existing Employee Details</button>
         <button class="button">Delete Employee</button>
     </div>
@@ -22,8 +22,11 @@
 
     <!--Script for Find Employee Button-->
     <script>
-        document.getElementById("findbutton").onclick = function () {
+        document.getElementById("findemployee").onclick = function () {
             window.location.href = "project_viewuser.html";
+          };
+          document.getElementById("logout").onclick = function () {
+            window.location.href = "login_page.html";
           };
     </script>
 
