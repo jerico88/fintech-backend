@@ -13,7 +13,7 @@
     </div>
     <div class="container">
         <h2>Choose an action:</h2>
-        <button class="button">Add Employee</button>
+        <button class="button" id="addbutton">Add Employee</button>
         <button class="button" id="findbutton">Find Employee</button>
         <button class="button">Edit Existing Employee Details</button>
         <button class="button">Delete Employee</button>
@@ -21,6 +21,12 @@
 
 
     <!--Script for Find Employee Button-->
+    <script>
+        document.getElementById("addbutton").onclick = function () {
+            window.location.href = "project_adduser.html";
+          };
+    </script>
+
     <script>
         document.getElementById("findbutton").onclick = function () {
             window.location.href = "project_viewuser.html";
@@ -34,6 +40,7 @@
 
         document.querySelector(".logout button").addEventListener("click", logout);
     </script>
+
 
 </body>
 </html>
