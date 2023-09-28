@@ -26,6 +26,14 @@ service.get('/project_viewuser.html', (request, response) => {
     response.sendFile(__dirname + '/project_viewuser.html');
 });
 
+service.get('/project_edituser.html', (request, response) => {
+    response.sendFile(__dirname + '/project_edituser.html');
+});
+
+service.get('/project_deleteuser.html', (request, response) => {
+    response.sendFile(__dirname + '/project_deleteuser.html');
+});
+
 
 service.listen(
     3000,

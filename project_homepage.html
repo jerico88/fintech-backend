@@ -69,8 +69,8 @@
         <h2>Choose an action:</h2>
         <button class="button" id="addbutton">Add Employee</button>
         <button class="button" id="findbutton">Find Employee</button>
-        <button class="button">Edit Existing Employee Details</button>
-        <button class="button">Delete Employee</button>
+        <button class="button" id="editbutton">Edit Existing Employee Details</button>
+        <button class="button" id="deletebutton">Delete Employee</button>
     </div>
 
 
@@ -88,10 +88,24 @@
     </script>
 
     <script>
+        document.getElementById("editbutton").onclick = function () {
+            window.location.href = "project_edituser.html";
+          };
+    </script>
+
+    <script>
+        document.getElementById("deletebutton").onclick = function () {
+            window.location.href = "project_deleteuser.html";
+          };
+    </script>
+
+    <script>
         document.getElementById("logoutbutton").onclick = function () {
             window.location.href = "login_page.html";
           };
     </script>
+
+    
 
 
    <!-- <script>

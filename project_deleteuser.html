@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <!-- <link rel="stylesheet" href="style/homepagestyle.css"> -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .container {
+            margin: 20px;
+            text-align: center;
+        }
+        
+        .button {
+            background-color: #0074d9;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius:12px; 
+        }
+        
+        .button:hover {
+            background-color: #0056b3;
+        }
+        
+        .form {
+            width:250px;
+            margin-left: 450px;
+            font-size: 2ch;
+        }
+        
+        .form input {
+            width:300%;
+        }
+        
+    </style>
+ 
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>Delete Record</h1>
+    </div>
+    <div class="logout">
+        <button class="button" id="backbutton">Back</button>
+    </div>
+   
+    <h2 class = "container"><u>Delete Parameter</u>:</h2>
+    <div class="form">
+        <form>
+            <label for="id">Id:</label>
+            <input type="text" id="id"><br>
+        </form>
+        <button class="button" id="submitbutton">Delete</button>
+
+
+    </div>
+
+     <!--Script for Back Button-->
+    <script>
+        document.getElementById("backbutton").onclick = function () {
+            window.location.href = "project_homepage.html";
+          };
+    </script>
+
+    <!--Script for submit button-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitButton = document.getElementById("submitbutton");
+
+            submitButton.addEventListener("click", function() {
+                const scriptElement = document.createElement("script");
+
+                scriptElement.src = "./api/testapi"
+            })
+        });
+    </script>
+
+</body>
+</html>
