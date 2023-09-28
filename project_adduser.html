@@ -70,19 +70,17 @@
    
     <h2 class = "container"><u>Add Parameter</u>:</h2>
     <div class="form">
-        <form>
+        <form id="addUserForm">
             <label for="name">Name:</label>
-            <input type="text" id="name"><br>
+            <input type="text" id="name" name="name"><br>
             <label for="employee_id">Employee ID:</label>
-            <input type="text" id="employee_id"><br>
+            <input type="text" id="employee_id" name="employee_id"><br>
             <label for="job_title">Job Title:</label>
-            <input type="text" id="job_title"><br>
+            <input type="text" id="job_title" name="job_title"><br>
             <label for="salary">Salary:</label>
-            <input type="text" id="salary"><br>
+            <input type="text" id="salary" name="salary"><br>
         </form>
         <button class="button" id="submitbutton">Submit</button>
-
-
     </div>
 
      <!--Script for Back Button-->
@@ -96,14 +94,40 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const submitButton = document.getElementById("submitbutton");
-
-            submitButton.addEventListener("click", function() {
-                const scriptElement = document.createElement("script");
-
-                scriptElement.src = "./api/testapi"
-            })
+            const form = document.getElementById("addUserForm");
+    
+            submitButton.addEventListener("click", function () {
+                const name = document.getElementById("name").value;
+                const employee_id = document.getElementById("employee_id").value;
+                const job_title = document.getElementById("job_title").value;
+                const salary = document.getElementById("salary").value;
+    
+                const data = {
+                    name,
+                    employee_id,
+                    job_title,
+                    salary,
+                };
+    
+                // Send a POST request to the server
+                fetch("/submit-form", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    // Redirect to the homepage or display a success message
+                })
+                .catch(error => {
+                    console.error(error);
+                    // Handle the error
+                });
+            });
         });
     </script>
-
 </body>
 </html>

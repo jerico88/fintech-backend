@@ -1,26 +1,23 @@
-//const mysql = require("mysql");
-//require('dotenv').config({path:"../.env"});
+// const mysql = require("mysql");
+// require('dotenv').config({path:"../.env"});
 
-const mysql = require("mysql"); //to tell node.js that you want to use mysql
-require('dotenv').config({path:"./.env"}); //tell node.js you require dotenv module to use .env file. ../.env when running from this file. ./.env when running form main.js
+// parameters = {
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASS,
+//     database: process.env.DB_NAME,
+//     multipleStatements: true,
+//   };
 
-parameters = {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    multipleStatements: true,
-  };
-
-mysqlConnection = mysql.createConnection(parameters);
+// mysqlConnection = mysql.createConnection(parameters);
   
-mysqlConnection.connect((err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Connected to MySQL");
-    }
-});
+// mysqlConnection.connect((err) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log("Connected to MySQL");
+//     }
+// });
 
-module.exports = { mysqlConnection };
+// module.exports = { mysqlConnection };
