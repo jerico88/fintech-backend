@@ -1,124 +1,118 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Homepage</title>
-    <!-- <link rel="stylesheet" href="style/homepagestyle.css"> -->
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .logout {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        
-        .container {
-            margin: 20px;
-            text-align: center;
-        }
-        
-        .button {
-            background-color: #0074d9;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            margin: 10px;
-            border-radius:12px; 
-        }
-        
-        .button:hover {
-            background-color: #0056b3;
-        }
-        
-        .form {
-            width:250px;
-            margin-left: 450px;
-            font-size: 2ch;
-        }
-        
-        .form input {
-            width:300%;
-        }
-        
-    </style>
-</head>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
 
-<body>
+      .header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .logout {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      .container {
+        margin: 20px;
+        text-align: center;
+      }
+
+      .button {
+        background-color: #0074d9;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        border-radius: 12px;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .form {
+        width: 250px;
+        margin-left: 450px;
+        font-size: 2ch;
+      }
+
+      .form input {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
     <div class="header">
-        <h1>Find Employee</h1>
+      <h1>Find Employee</h1>
     </div>
     <div class="logout">
-        <button class="button" id="backbutton">Back</button>
+      <button class="button" id="backbutton">Back</button>
     </div>
-   
-    <h2 class="container"><u>Search Parameter</u>:</h2>
+
+    <h2 class="container"><u>Search For Employees</u>:</h2>
     <div class="form">
-        <form>
-            <label for="employee_id">Employee ID:</label>
-            <input type="text" id="employee_id"><br>
-        </form>
-        <button class="button" id="submitbutton">Submit</button>
+      <form>
+        <label for="employee_id">Employee ID:</label>
+        <input type="text" id="employee_id" /><br />
+      </form>
+      <button class="button" id="submitbutton">Search</button>
     </div>
-    
+
     <!-- Container to display user details -->
     <div id="userContainer" class="container">
-        <!-- User details will be displayed here -->
+      <!-- User details will be displayed here -->
     </div>
-
-    <!-- Script to fetch and display user details -->
-    <script>
-        document.getElementById("backbutton").onclick = function () {
-            window.location.href = "project_homepage.html";
-        };
-
-        document.getElementById("submitbutton").addEventListener("click", function () {
-        const employeeId = document.getElementById("employee_id").value;
-    
-        // Send a GET request to the server to fetch a user by Employee ID
-        fetch(`/employee/get-by-id?id=${employeeId}`, {
-            method: "GET",
-        })
-        .then(response => response.json())
-        .then(user => {
-            const userContainer = document.getElementById("userContainer");
-            userContainer.innerHTML = ""; // Clear previous data
-            
-            if (user) {
-                const userElement = document.createElement("div");
-                userElement.textContent = `Name: ${user.name}, Employee ID: ${user.employee_id}, Job Title: ${user.job_title}, Salary: ${user.salary}`;
-                userContainer.appendChild(userElement);
-            } else {
-                userContainer.textContent = "Employee not found.";
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            // Handle the error
-        });
-    });
-    </script>
 
     <!-- Script for Back Button -->
     <script>
-        document.getElementById("backbutton").onclick = function () {
-            window.location.href = "project_homepage.html";
-        };
+      document.getElementById("backbutton").onclick = function () {
+        window.location.href = "project_homepage.html";
+      };
     </script>
 
-</body>
+    <!-- Script to fetch and display user details -->
+    <script>
+      document
+        .getElementById("submitbutton")
+        .addEventListener("click", function () {
+          const employeeId = document.getElementById("employee_id").value;
+
+          // Send a GET request to the server to fetch a user by Employee ID
+          fetch(`/employee/get-by-id?id=${employeeId}`, {
+            method: "GET",
+          })
+            .then((response) => response.json())
+            .then((user) => {
+              const userContainer = document.getElementById("userContainer");
+              userContainer.innerHTML = ""; // Clear previous data
+
+              if (user) {
+                const userElement = document.createElement("div");
+                userElement.textContent = `Name: ${user.name}, Employee ID: ${user.employee_id}, Job Title: ${user.job_title}, Salary: ${user.salary}`;
+                userContainer.appendChild(userElement);
+              } else {
+                userContainer.textContent = "Employee not found.";
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+              // Handle the error
+            });
+        });
+    </script>
+  </body>
 </html>

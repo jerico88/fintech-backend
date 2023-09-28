@@ -1,111 +1,135 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Homepage</title>
-    <!-- <link rel="stylesheet" href="style/homepagestyle.css"> -->
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .logout {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        
-        .container {
-            margin: 20px;
-            text-align: center;
-        }
-        
-        .button {
-            background-color: #0074d9;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            margin: 10px;
-            border-radius:12px; 
-        }
-        
-        .button:hover {
-            background-color: #0056b3;
-        }
-        
-        .form {
-            width:250px;
-            margin-left: 450px;
-            font-size: 2ch;
-        }
-        
-        .form input {
-            width:300%;
-        }
-        
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .logout {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      .container {
+        margin: 20px;
+        text-align: center;
+      }
+
+      .button {
+        background-color: #0074d9;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        border-radius: 12px;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .form {
+        width: 250px;
+        margin-left: 450px;
+        font-size: 2ch;
+      }
+
+      .form input {
+        width: 100%;
+      }
     </style>
- 
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="header">
-        <h1>Edit Employee Record</h1>
+      <h1>Edit Employee</h1>
     </div>
     <div class="logout">
-        <button class="button" id="backbutton">Back</button>
+      <button class="button" id="backbutton">Back</button>
     </div>
-   
-    <h2 class = "container"><u>Edit Parameter</u>:</h2>
+
+    <h2 class="container"><u>Edit Employee Details</u>:</h2>
     <div class="form">
-        <form>
-            <label for="id">Reference Id:</label>
-            <input type="text" id="id"><br>
-            <label for="name">Name:</label>
-            <input type="text" id="name"><br>
-            <label for="employee_id">Employee ID:</label>
-            <input type="text" id="employee_id"><br>
-            <label for="job_title">Job Title:</label>
-            <input type="text" id="job_title"><br>
-            <label for="salary">Salary:</label>
-            <input type="text" id="salary"><br>
-        </form>
-        <button class="button" id="submitbutton">Submit</button>
-
-
+      <form id="editUserForm">
+        <label for="employee_id">Employee ID:</label>
+        <input type="text" id="employee_id" name="employee_id" /><br />
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" /><br />
+        <label for="job_title">Job Title:</label>
+        <input type="text" id="job_title" name="job_title" /><br />
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" name="salary" /><br />
+      </form>
+      <button class="button" id="submitbutton">Submit</button>
     </div>
 
-     <!--Script for Back Button-->
+    <!-- Container to display user details -->
+    <div id="userDetails" class="container">
+      <!-- Updated user details will be displayed here -->
+    </div>
+
+    <!-- Script for Back Button -->
     <script>
-        document.getElementById("backbutton").onclick = function () {
-            window.location.href = "project_homepage.html";
-          };
+      document.getElementById("backbutton").onclick = function () {
+        window.location.href = "project_homepage.html";
+      };
     </script>
 
-    <!--Script for submit button-->
+    <!-- Script to fetch and display updated user details -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const submitButton = document.getElementById("submitbutton");
+      document.addEventListener("DOMContentLoaded", function () {
+        const submitButton = document.getElementById("submitbutton");
+        const form = document.getElementById("editUserForm");
 
-            submitButton.addEventListener("click", function() {
-                const scriptElement = document.createElement("script");
+        submitButton.addEventListener("click", function () {
+          const employeeId = document.getElementById("employee_id").value;
+          const name = document.getElementById("name").value;
+          const jobTitle = document.getElementById("job_title").value;
+          const salary = document.getElementById("salary").value;
 
-                scriptElement.src = "./api/testapi"
+          const userDetailsContainer = document.getElementById("userDetails");
+
+          // Send a PUT request to update user details
+          fetch(`/employee/update/${employeeId}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, job_title: jobTitle, salary }),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              console.log(data);
+              // Display updated details
+              userDetailsContainer.innerHTML = `
+                        <h2>Updated Employee Details</h2>
+                        <p>Name: ${name}</p>
+                        <p>Employee ID: ${employeeId}</p>
+                        <p>Job Title: ${jobTitle}</p>
+                        <p>Salary: ${salary}</p>
+                    `;
             })
+            .catch((error) => {
+              console.error(error);
+              // Handle the error
+            });
         });
+      });
     </script>
-
-</body>
+  </body>
 </html>
