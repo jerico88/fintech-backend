@@ -57,24 +57,24 @@
 
   <body>
     <div class="header">
-      <h1>Find Employee</h1>
+      <h1>Delete Employee</h1>
     </div>
     <div class="logout">
       <button class="button" id="backbutton">Back</button>
     </div>
 
-    <h2 class="container"><u>Search For Employees</u>:</h2>
+    <h2 class="container"><u>Delete Employee Details</u>:</h2>
     <div class="form">
-      <form>
+      <form id="deleteUserForm">
         <label for="employee_id">Employee ID:</label>
-        <input type="text" id="employee_id" /><br />
+        <input type="text" id="employee_id" name="employee_id" /><br />
       </form>
-      <button class="button" id="submitbutton">Search</button>
+      <button class="button" id="submitbutton">Delete</button>
     </div>
 
-    <!-- Container to display user details -->
-    <div id="userContainer" class="container">
-      <!-- User details will be displayed here -->
+    <!-- Container to display delete confirmation message -->
+    <div id="deleteConfirmation" class="container">
+      <!-- Delete confirmation message will be displayed here -->
     </div>
 
     <!-- Script for Back Button -->
@@ -84,35 +84,34 @@
       };
     </script>
 
-    <!-- Script to fetch and display user details -->
+    <!-- Script to handle employee deletion -->
     <script>
-      document
-        .getElementById("submitbutton")
-        .addEventListener("click", function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        const submitButton = document.getElementById("submitbutton");
+        const form = document.getElementById("deleteUserForm");
+
+        submitButton.addEventListener("click", function () {
           const employeeId = document.getElementById("employee_id").value;
 
-          // Send a GET request to the server to fetch a user by Employee ID
-          fetch(`/employee/get-by-id?id=${employeeId}`, {
-            method: "GET",
-          })
-            .then((response) => response.json())
-            .then((user) => {
-              const userContainer = document.getElementById("userContainer");
-              userContainer.innerHTML = ""; // Clear previous data
+          const deleteConfirmationContainer =
+            document.getElementById("deleteConfirmation");
 
-              if (user) {
-                const userElement = document.createElement("div");
-                userElement.textContent = `Name: ${user.name}, Employee ID: ${user.employee_id}, Job Title: ${user.job_title}, Salary: ${user.salary}`;
-                userContainer.appendChild(userElement);
-              } else {
-                userContainer.textContent = "Employee not found.";
-              }
+          // Send a DELETE request to delete the user
+          fetch(`/employee/delete/${employeeId}`, {
+            method: "DELETE",
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              console.log(data);
+              // Display delete confirmation message
+              deleteConfirmationContainer.innerHTML = `<p>${data}</p>`;
             })
             .catch((error) => {
               console.error(error);
               // Handle the error
             });
         });
+      });
     </script>
   </body>
 </html>
