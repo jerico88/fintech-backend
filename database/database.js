@@ -1,5 +1,8 @@
-const mysql = require("mysql");
-require('dotenv').config();
+//const mysql = require("mysql");
+//require('dotenv').config({path:"../.env"});
+
+const mysql = require("mysql"); //to tell node.js that you want to use mysql
+require('dotenv').config({path:"./.env"}); //tell node.js you require dotenv module to use .env file. ../.env when running from this file. ./.env when running form main.js
 
 parameters = {
     host: process.env.DB_HOST,
