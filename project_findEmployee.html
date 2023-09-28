@@ -100,12 +100,14 @@
               const userContainer = document.getElementById("userContainer");
               userContainer.innerHTML = ""; // Clear previous data
 
-              if (user) {
+              if (user && Object.keys(user).length > 0) {
                 const userElement = document.createElement("div");
                 userElement.textContent = `Name: ${user.name}, Employee ID: ${user.employee_id}, Job Title: ${user.job_title}, Salary: ${user.salary}`;
                 userContainer.appendChild(userElement);
               } else {
-                userContainer.textContent = "Employee not found.";
+                const notFoundMessage = document.createElement("div");
+                notFoundMessage.textContent = "Employee not found.";
+                userContainer.appendChild(notFoundMessage);
               }
             })
             .catch((error) => {
