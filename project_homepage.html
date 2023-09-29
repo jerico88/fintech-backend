@@ -1,120 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Homepage</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .logout {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        
-        .container {
-            margin: 20px;
-            text-align: center;
-        }
-        
-        .button {
-            background-color: #0074d9;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            margin: 10px;
-            border-radius:12px; 
-        }
-        
-        .button:hover {
-            background-color: #0056b3;
-        }
-        
-        .form {
-            width:250px;
-            margin: 0 auto;
-            font-size: 2ch;
-        }
-        
-        .form input {
-            width:300%;
-        }
-        
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .logout {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      .container {
+        margin: 20px;
+        text-align: center;
+      }
+
+      .button {
+        background-color: #0074d9;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+        border-radius: 12px;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .form {
+        width: 250px;
+        margin-left: 450px;
+        font-size: 2ch;
+      }
+
+      .form input {
+        width: 300%;
+      }
     </style>
-
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <h1>Welcome User</h1>
+      <h1>Welcome User</h1>
     </div>
     <div class="logout">
-        <button class="button" id="logoutbutton">Log Out</button>
+      <button class="button" id="logoutbutton">Log Out</button>
     </div>
     <div class="container">
-        <h2>Choose an action:</h2>
-        <button class="button" id="addbutton">Add Employee</button>
-        <button class="button" id="findbutton">Find Employee</button>
-        <button class="button" id="editbutton">Edit Existing Employee Details</button>
-        <button class="button" id="deletebutton">Delete Employee</button>
+      <h2>Choose an action:</h2>
+      <button class="button" id="addbutton">Add Employee</button>
+      <button class="button" id="findbutton">Find Employee</button>
+      <button class="button" id="editbutton">
+        Edit Existing Employee Details
+      </button>
+      <button class="button" id="deletebutton">Delete Employee</button>
     </div>
-
 
     <!--Script for Find Employee Button-->
     <script>
-        document.getElementById("addbutton").onclick = function () {
-            window.location.href = "project_adduser.html";
-          };
+      document.getElementById("addbutton").onclick = function () {
+        window.location.href = "project_addEmployee.html";
+      };
     </script>
 
     <script>
-        document.getElementById("findbutton").onclick = function () {
-            window.location.href = "project_viewuser.html";
-          };
+      document.getElementById("findbutton").onclick = function () {
+        window.location.href = "project_findEmployee.html";
+      };
     </script>
 
     <script>
-        document.getElementById("editbutton").onclick = function () {
-            window.location.href = "project_edituser.html";
-          };
+      document.getElementById("editbutton").onclick = function () {
+        window.location.href = "project_editEmployeeDetails.html";
+      };
     </script>
 
     <script>
-        document.getElementById("deletebutton").onclick = function () {
-            window.location.href = "project_deleteuser.html";
-          };
+      document.getElementById("deletebutton").onclick = function () {
+        window.location.href = "project_deleteEmployee.html";
+      };
     </script>
 
     <script>
-        document.getElementById("logoutbutton").onclick = function () {
-            window.location.href = "login_page.html";
-          };
+      document.getElementById("logoutbutton").onclick = function () {
+        window.location.href = "login_page.html";
+      };
     </script>
-
-    
-
-
-   <!-- <script>
-        function logout() {
-            window.location.href = "login_page.html";
-        }
-
-        document.querySelector(".logout button").addEventListener("click", logout);
-    </script>
--->
-
-</body>
+  </body>
 </html>

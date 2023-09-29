@@ -14,24 +14,28 @@ service.get("/", (request, response) => {
   response.sendFile(__dirname + "/login_page.html");
 });
 
+service.get("/login_page.html", (request, response) => {
+  response.sendFile(__dirname + "/login_page.html");
+});
+
 service.get("/project_homepage.html", (request, response) => {
   response.sendFile(__dirname + "/project_homepage.html");
 });
 
-service.get("/project_adduser.html", (request, response) => {
-  response.sendFile(__dirname + "/project_adduser.html");
+service.get("/project_addEmployee.html", (request, response) => {
+  response.sendFile(__dirname + "/project_addEmployee.html");
 });
 
-service.get("/project_viewuser.html", (request, response) => {
-  response.sendFile(__dirname + "/project_viewuser.html");
+service.get("/project_findEmployee.html", (request, response) => {
+  response.sendFile(__dirname + "/project_findEmployee.html");
 });
 
-service.get("/project_edituser.html", (request, response) => {
-  response.sendFile(__dirname + "/project_edituser.html");
+service.get("/project_editEmployeeDetails.html", (request, response) => {
+  response.sendFile(__dirname + "/project_editEmployeeDetails.html");
 });
 
-service.get("/project_deleteuser.html", (request, response) => {
-  response.sendFile(__dirname + "/project_deleteuser.html");
+service.get("/project_deleteEmployee.html", (request, response) => {
+  response.sendFile(__dirname + "/project_deleteEmployee.html");
 });
 
 parameters = {
@@ -87,7 +91,7 @@ service.get("/employee/get-all", (req, res) => {
 
 // GET route to retrieve a user by ID
 service.get("/employee/get-by-id", (req, res) => {
-  const employeeId = req.query.id; 
+  const employeeId = req.query.id;
   const sql = "SELECT * FROM EmployeeRecords WHERE employee_id = ?";
 
   mysqlConnection.query(sql, [employeeId], (error, result) => {
